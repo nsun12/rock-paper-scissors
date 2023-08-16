@@ -10,8 +10,7 @@ function playRound(playerSelection, computerSelection) {
     const winnerPlayer = 'You Won this Round!'
     const winnerComputer = 'You Lost this Round!'
     const noWinner = 'Tie, go again!'
-    var playerSelection = getPlayerChoice();
-    var computerSelection = getComputerChoice();
+    
     
     if (playerSelection === computerSelection) {
         return noWinner;
@@ -31,10 +30,10 @@ function game() {
   let computerScore = 0;
 
   while(playerScore < 5 && computerScore < 5) {
-    const playerChoice= getPlayerChoice();
-    const computerChoice= getComputerChoice();
+    const playerSelection= getPlayerChoice();
+    const computerSelection= getComputerChoice();
 
-    const roundResult = playRound(playerChoice, computerChoice);
+    const roundResult = playRound(playerSelection, computerSelection);
 
     if (roundResult === 'You Won this Round!'){ 
         playerScore++;
@@ -47,8 +46,10 @@ function game() {
 
   }
     if (playerScore === 5) {
-        console.log('You won! :)');}
-        else {console.log('You lost! :(')}
+        return 'You won! :)';}
+        else if (computerScore === 5) {
+            return 'You lost! :('
+        }
 
     }
 
